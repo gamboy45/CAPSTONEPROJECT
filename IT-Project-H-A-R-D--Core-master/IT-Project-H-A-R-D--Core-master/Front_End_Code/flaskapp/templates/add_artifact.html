@@ -1,0 +1,382 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+		h1{
+			font-family : Montserrat;
+			font-weight: bold;
+			font-size : 22px;
+			text-decoration: none;
+			color : #595A5A;
+			color : rgb(89, 90, 90);
+			text-align: center;
+		}
+		h2{
+			font-family : Montserrat;
+			font-size : 18px;
+			text-decoration: none;
+			display: inline;
+			color : #595A5A;
+			color : rgb(89, 90, 90);
+			padding-top: 1vh;
+			padding-left: 1%;
+			margin-right: 1%;
+		}
+		h3{
+			font-family : Montserrat;
+			font-size : 18px;
+			text-decoration: none;
+			display: inline;
+			color : #595A5A;
+			color : rgb(89, 90, 90);
+			margin-right: 1%;
+		}
+		p{
+			font-family : Montserrat;
+			font-size : 16px;
+			text-decoration: none;
+			text-align: center;
+			color : #595A5A;
+			color : rgb(89, 90, 90);
+			text-align: center;
+			padding: 1.5px 10px 0px 15px;
+		}
+		
+		input[type=text], input[type=shorttext], input[type=mediumtext], textarea[type=longtext]{
+			box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+			-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+			font-family : Montserrat;
+			width: 22%;
+			padding: 12px 15px;
+			margin: auto;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			display: inline-block;
+			height: 40px;
+			
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			border-style : Solid;
+			border-width : 1.5px;
+			border-radius : 9px;
+	
+			color : #595A5A;
+			color : rgb(89, 90, 90);
+			outline: none;
+		}
+
+		input[type=shorttext]{
+			width: 40%;
+		}
+
+		input[type=mediumtext]{
+			width: 55%;
+		}
+		textarea[type=longtext]{
+			display: block;
+			margin-top: 0;
+			margin-left: 19%;
+			width: 77%;
+			height: 10vh;
+			resize: none;
+		}
+		input[type=submit]{
+			background-color : #036280;
+			color : #F7F7F7;
+			color : rgb(247, 247, 247);
+			border: none;
+			cursor: pointer;
+			width: 25%;
+			height: 40px;
+			margin-left:auto;
+			margin-right:auto;
+			margin-top: 1vh;
+			display: block;
+			opacity : 0.8;
+			outline: none;
+	
+			font-family : Montserrat;
+			font-weight : bold;
+			font-size : 20px;
+			
+			border-radius : 9px;
+			-moz-border-radius : 9px;
+			-webkit-border-radius : 9px;
+		}
+		input[type=submit]:hover{
+			opacity: 0.7;
+		}
+		input[type=file]{
+			width: 22%;
+		}
+	
+		select.minor {
+			-webkit-appearance: button;
+			box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+			-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+			-webkit-user-select: none;
+	
+			font-family : Montserrat;
+			font-size : 13px;
+			width: 22%;
+			height: 40px;
+			padding-left: 1.5%;
+			margin-top: 10px;
+			margin-bottom:10px;
+			display: block;
+	
+			border-style : Solid;
+			color : #595A5A;
+			color : rgb(89, 90, 90);
+			outline: none;
+	
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			border-style : Solid;
+			border-width : 1.5px;
+			border-radius : 9px;
+		}
+		select.minor2{
+			width: 15%;
+		}
+	
+		.select-style select {
+			padding: 5px 8px;
+			width: 130%;
+			border: none;
+			box-shadow: none;
+			background: transparent;
+			background-image: none;
+			-webkit-appearance: none;
+		}
+		select.addtype {        				
+			appearance: button;
+			-webkit-appearance: button;
+			-webkit-user-select: none;
+	
+			width: auto;
+			margin: auto;
+			margin-left: 2px;
+			margin-top: 1vh;
+			margin-bottom:1vh;
+			padding-left: 5px;
+	
+			display: inline-block;
+			border: none;
+			font-family : Montserrat;
+			font-weight: bold;
+			font-size : 22px;
+			text-decoration: underline;
+			color : #595A5A;
+			color : rgb(89, 90, 90);
+			text-align: center;
+			outline: none;
+			background : rgb(144, 180, 196, 0);
+		}
+		option.addtype{
+			font-family : Montserrat;
+			text-decoration: none;
+			font-size : 16px;
+			background : rgb(247, 247, 247);
+		}
+		div.query-form{
+			padding-top: 3vh;
+		}
+		body{
+			background : rgb(144, 180, 196, 0.4);
+		}
+		#people{
+			padding-top: 1vh;
+		}
+	
+	
+		form {
+			border: 3px solid #f1f1f1;
+			background : #F7F7F7;
+			background : rgba(247, 247, 247, 1);
+			border-radius : 9px;
+			max-width: 60%;
+			height: auto;
+			margin: auto;
+			padding: 16px;
+			margin-top: 0;
+			border-radius : 9px;
+			-moz-border-radius : 9px;
+			-webkit-border-radius : 9px;
+			margin-bottom: 2vh;
+		}
+		form.artifact{
+			width: 70%;
+		}
+		form#addexisting{
+			width: 45%;
+			float: center;
+			text-align: center;
+			height: 40vh;
+		}
+	
+		#inline{
+			display: inline;
+		}
+		#inline2{
+			display: inline-block;
+			width: 13%;
+		}
+		.space{
+			margin-top: 8vh;
+			margin-bottom: 8vh;
+		}
+		div.input-param{
+			width: auto;
+		}
+		div.line{
+			width: 100%;
+			height: auto;
+		}
+		div.highline{
+			height: 80px;
+		}
+		div.header{
+			width: 18.5%;
+			display: inline-block;
+		}
+		div.header2{
+			width: 17.5%;
+			display: inline-block;
+			margin-left: 5%;
+		}
+		div.header3{
+			display: inline;
+		}
+		#centerbot{
+			text-align: center;
+			bottom: 0;
+			width: 30%;
+		}
+	</style>
+
+<body>
+	<h1> I want to add 
+		<select class = "addtype" id="formselector" onchange="changeForm(this)">
+			<option class = "addtype" value="addnew" selected="selected">New Artifact</option>
+			<option class = "addtype" value="addexisting">Image to Existing Artifact</option>
+    	</select>
+    </h1>
+
+	<form action="/addArtifactData" name = "addnew" id = "addnew" method="post" enctype="multipart/form-data">
+		<div class="artifact_attribtues">
+			<div class="line">
+				<div class="header"> <h2> Name of Artifact </h2> </div>
+				<div class="input-param" id="inline">
+					<input type="text" class="input-field" value="" placeholder="Name" name="Name">
+					<label class="Input-field" for="input-Name"></label>
+				</div>
+				<div class="header2"> <h2> Location </h2> </div>
+				<div class="input-param" id="inline">
+					<input type="text" class="input-field" value="" placeholder="Location" name="Location">
+					<label class="Input-field" for="input-Location"></label>
+				</div>
+			</div>
+			<div class="line">
+				<div class="header"> <h2> Tag </h2> </div>
+				<div class="input-param" id="inline">
+					<input type="text" class="input-field" value="" placeholder="Tag" name="Tag">
+					<label class="Input-field" for="input-Tag"></label>
+				</div>
+				<div class="header2"> <h2> Artifact Type </h2> </div>
+				<div class="input-param" id="inline">
+					<select id = "inline" class="minor" name="artifactType">
+						<option value="letter">Letter</option>
+						<option value="postcard">PostCard</option>
+					</select> 
+				</div>
+				
+				
+			</div>
+			<div class="line">
+				<div class="input-param">
+					<div class="header"> <h2> Date Acquired </h2> </div>
+					<input type="text" name="DayAcquired" placeholder="Day">
+					<input type="text" name="MonthAcquired" placeholder="Month">
+					<input type="text" name="YearAcquired" placeholder="Year">
+					<select id = "inline2" class="minor" name="accuracy" >
+						<option value="documented">Documented</option>
+						<option value="accurate">Accurate</option>
+						<option value="likely">Likely</option>
+					</select>
+				</div>
+			</div>
+			<div class="line">
+				<div class="input-param">
+					<div class="header"> <h2> Current Owner </h2> </div>
+					<input type="text" name="CurrentOwner" placeholder="Full Name">
+					<div class="header2"> <h2> Heir </h2> </div>
+					<input type="text" name="Heir" placeholder="Full Name">
+				</div>
+			</div>
+				<div class="header3"> <h3> Description </h3> 
+					<div class="input-param">
+						<textarea type="longtext" rows="3" cols="95" name="Description" placeholder="Description"></textarea>
+					</div>
+				</div>
+
+			<div class="line2">
+				<div class="header"> <h2> Image </h2> </div>
+				<input type="file" class="input-field" value="" placeholder="Image" name="Image" id="Image">
+				<div class="header2"> <h2> Caption </h2> </div>
+				<input type="text" name="imageCaption" placeholder="Image Caption">
+			</div>
+				
+
+				<div class="input-param">
+					<!-- <p>Letter/postcard details</p>-->
+					<div class="header"> <h2> Sender </h2> </div>
+					<input type="text" name="Sender" placeholder="Name">
+					<input type="mediumtext" name="SenderAddress" placeholder="Address">
+					<div class="header"> <h2> Receiver </h2> </div>
+					<input type="text" name="Receiver" placeholder="Name">
+					<input type="mediumtext" name="ReceiverAddress" placeholder="Address">
+					
+					<div class="header"> <h2> Letter Type </h2> </div>
+					<select id="inline" class="minor" name = "letterType">
+						<option value="Aerogramme">Aerogramme</option>
+						<option value="Telegram">Telegram</option>
+						<option value="Neither">Letter</option>
+					</select>
+					<div class="header2"> <h2> Envelope Cover </h2> </div>
+					<input type="file" name="specImage" placeholder="Letter Envelope or Postcard Cover" id="specImage">
+				</div>
+		</div>
+		<input type="submit" name="centerbot" value="Add Artifact" class="btn btn-primary btn-large btn-block">
+	</form>
+
+	<form action="/addNewImage" name= "addexisting" id = "addexisting" method="post" style = "display:none" enctype="multipart/form-data">
+		<h1>Add New Image to an Artifact</h1>
+		<div class="space">
+			<div class="line">
+				<div id="inline"> <h2> Artifact Name </h2> </div> 
+				<input type="text" id="inline" name="artifact" placeholder="Artifact Name">
+				<div id="inline2"> <h2> Caption </h2> </div> 
+				<input type="shorttext" id="inline" name="caption" placeholder="Caption">
+			</div>
+			<div id="inline"> <h2> Image </h2> </div> 
+			<input type="file" name="image" placeholder="image" id="image">
+		</div>
+		<input type="submit" value="Add Image" class="btn btn-primary btn-large btn-block">
+	</form>
+
+	<script>
+	    function changeForm(form) {
+	      	for (var i=0; i<form.length; i++){
+	        	var form_op = form.options[i].value;
+	        if (form_op == form.value) {
+	          	document.getElementsByName(form_op)[0].style.display = "block";
+	        }else {
+	          	document.getElementsByName(form_op)[0].style.display = "none";
+	        }
+	       	}
+	    }
+	</script>
+</body>
+
+
+{% endblock %}

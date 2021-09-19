@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    h1{
+    	font-family : Montserrat;
+        font-weight: bold;
+        font-size : 22px;
+        text-decoration: none;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+        text-align: center;
+        padding: 1.5px 10px 0px 10px;
+    }
+	h2{
+    	font-family : Montserrat;
+        font-size : 18px;
+        text-decoration: none;
+		display: inline;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+		padding-top: 1vh;
+        padding-left: 1%;
+		margin-right: 1%;
+    }
+	p{
+        font-family : Montserrat;
+        font-size : 16px;
+        text-decoration: none;
+        text-align: center;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+        text-align: center;
+        padding: 1.5px 10px 0px 15px;
+    }
+
+    input[type=text]{
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+		font-family : Montserrat;
+		width: auto;
+		padding: 12px 15px;
+		margin: auto;
+        margin-top: 10px;
+        margin-bottom:25px;
+		display: inline-block;
+		height: 40px;
+		
+		box-sizing: border-box;
+		border: 1px solid #ccc;
+		border-style : Solid;
+		border-width : 1.5px;
+		border-radius : 9px;
+
+		color : #595A5A;
+        color : rgb(89, 90, 90);
+		outline: none;
+	}
+    input[type=submit]{
+		background-color : #036280;
+		color : #F7F7F7;
+		color : rgb(247, 247, 247);
+		border: none;
+		cursor: pointer;
+		width: 225px;
+		height: 40px;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top: 1vh;
+		display: block;
+		opacity : 0.8;
+		outline: none;
+
+		font-family : Montserrat;
+		font-weight : bold;
+		font-size : 20px;
+		
+		border-radius : 9px;
+		-moz-border-radius : 9px;
+		-webkit-border-radius : 9px;
+	}
+	input[type=submit]:hover{
+        opacity: 0.7;
+    }
+
+    select.minor {
+        -webkit-appearance: button;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+        -webkit-user-select: none;
+
+        font-family : Montserrat;
+        font-size : 13px;
+        width: auto;
+        height: 40px;
+        padding: 0 15px;
+        margin-top: 10px;
+        margin-bottom:25px;
+        display: block;
+
+        border-style : Solid;
+        color : #595A5A;
+        color : rgb(89, 90, 90);
+        outline: none;
+
+		box-sizing: border-box;
+		border: 1px solid #ccc;
+		border-style : Solid;
+		border-width : 1.5px;
+		border-radius : 9px;
+    }
+
+    .select-style select {
+        padding: 5px 8px;
+        width: 130%;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        background-image: none;
+        -webkit-appearance: none;
+    }
+	select.addtype {        				
+        appearance: button;
+        -webkit-appearance: button;
+        -webkit-user-select: none;
+
+        width: auto;
+		margin: auto;
+        margin-left: 2px;
+        margin-top: 1vh;
+        margin-bottom:2vh;
+        padding-left: 5px;
+
+        display: inline-block;
+        border: none;
+        font-family : Montserrat;
+        font-weight: bold;
+        font-size : 22px;
+        text-decoration: underline;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+        text-align: center;
+        outline: none;
+        background : rgb(144, 180, 196, 0);
+    }
+    option.addtype{
+        font-family : Montserrat;
+        text-decoration: none;
+        font-size : 16px;
+        background : rgb(247, 247, 247);
+    }
+    div.query-form{
+        padding-top: 3vh;
+    }
+    body{
+        background : rgb(144, 180, 196, 0.4);
+    }
+    #people{
+        padding-top: 1vh;
+    }
+
+
+	form {
+		border: 3px solid #f1f1f1;
+		background : #F7F7F7;
+		background : rgba(247, 247, 247, 1);
+		border-radius : 9px;
+		max-width: 60%;
+		height: 60vh;
+		margin: auto;
+		padding: 16px;
+		border-radius : 9px;
+		-moz-border-radius : 9px;
+		-webkit-border-radius : 9px;
+	}
+	form.newperson{
+		width: 70%;
+	}
+	form.newrelationship{
+		width: 45%;
+		float: center;
+		text-align: center;
+	}
+	form.newassociation{
+		width: 45%;
+		float: center;
+		text-align: center;
+	}
+
+    #inline{
+		display: inline;
+	}
+	#space{
+		margin-top: 19vh;
+		margin-bottom: 19vh;
+	}
+	div.input-param{
+		width: auto;
+	}
+	div.line{
+		width: 100%;
+		height: auto;
+	}
+	div.header{
+		width: 15.5%;
+		display: inline-block;
+	}
+</style>
+
+<body>
+	<h1> I want to add 
+		<select class = "addtype" id="formselector" onchange="changeForm(this)">
+			<option class="addtype" value="newperson" selected="selected">New Person</option>
+			<option class="addtype" value="newrelationship">New Relationship</option>
+			<option class="addtype" value="newassociation">New Association</option>
+    	</select>
+	</h1>
+	
+	<form class = "newperson" action="/addPersonData" name="newperson" id="newperson" method="post" enctype="multipart/form-data">
+		<h1>Add New Person</h1>		
+		<div class="person_attribtues">
+			<div class="line">
+				<div class="header"> <h2> Name </h2> </div>
+				<div class="input-param" id="inline">
+					<input type="text" class="input-field" value="" placeholder="FirstName" name="FirstName">
+					<label class="Input-field" for="input-FirstName"></label>
+				</div>
+				<div class="input-param" id="inline">
+					<input type="text" class="input-field" value="" placeholder="LastName" name="LastName">
+					<label class="Input-field" for="input-LastName"></label>
+				</div>
+				<div id="inline">
+						<input type="text" name="MaidenName" placeholder="MaidenName">
+				</div>
+			</div>
+			<div class="line">
+				<div class="header"> <h2> Date of Birth </h2> </div>
+				<div id="inline">
+					<input type="text" name="DOBDay" placeholder="Day">
+					<input type="text" name="DOBMonth" placeholder="Month">
+					<input type="text" name="DOBYear" placeholder="Year">
+					<select id = "inline" class = "minor" name="DOBaccuracy">
+						<option value="documented">Documented</option>
+						<option value="accurate">Accurate</option>
+						<option value="likely">Likely</option>
+					</select>
+				</div>
+			</div>
+			<div class = "line">
+				<div class="header"> <h2> Date of Death </h2> </div>
+				<div id="inline">
+					<input type="text" name="DODDay" placeholder="Day">
+					<input type="text" name="DODMonth" placeholder="Month">
+					<input type="text" name="DODYear" placeholder="Year">
+					<select id="inline" class="minor" name="DODaccuracy">
+						<option value="documented">Documented</option>
+						<option value="accurate">Accurate</option>
+						<option value="likely">Likely</option>
+					</select>
+				</div>
+			</div>
+			<div class ="line">
+				<div class="header"> <h2> Gender </h2> </div>
+				<div id="inline">
+					<select id="inline" class="minor" name="gender">
+						<option value = 'm'>Male</option>
+						<option value = 'f'>Female</option>
+					</select>
+				</div>
+			</div>
+			<div class="line">
+				<div class="header"> <h2> Profile Picture </h2> </div>
+				<input type="file" class="input-field" value="" placeholder="Image" name="Image" id="Image">
+				<label class="Input-field" for="input-Image"></label>
+			</div>
+		</div>
+		<input type="submit" value="Add Person" class="btn btn-primary btn-large btn-block" id="centerbot">
+	</form>
+
+	
+	<form class="newrelationship" action="/addFamilyRelationship" id="newrelationship" name="newrelationship" style="display:none" method="post">
+		<h1>Add New Person-Person Relationship</h1>
+		<div class="Relationship_attributes" id="space">
+			<input id="inline" type="text" name="person1" placeholder="Full Name">
+			<div id="inline"> <h2> is the </h2> </div>
+			<select class="minor" name="Relationship" id="inline">
+				<option value="child">Child</option>
+				<option value="parent">Parent</option>
+				<option value="brother">Brother</option>
+				<option value="sister">Sister</option>
+				<option value="spouse">Spouse</option>
+				<option value="grandchild">Grandchild</option>
+				<option value="uncle">Uncle</option>
+				<option value="aunt">Aunt</option>
+			</select>
+			<div id="inline"> <h2> of </h2> </div>
+			<input id="inline" type="text" name="person2" placeholder="Full Name">
+		</div>
+		<input type="submit" value="Add Relationship" class="btn btn-primary btn-large btn-block" id="centerbot">
+	</form>
+
+	
+	<form class="newassociation" action="/addArtifactRelationship" id="newassociation" name="newassociation" style="display:none" method="post">
+		<h1>Add New Person-Artifact Association</h1>
+		<div class="Relationship_attributes" id="space">
+			<div id="inline"> <h2> Person: </h2> </div> 
+			<input type="text" name="person" placeholder="Full Name" id="inline">
+			<div id="inline"> <h2> Artifact:  </h2> </div>
+			<input type="text" name="artifact" placeholder="Artifact Name" id="inline">
+		</div>
+		<input type="submit" value="Add Association" class="btn btn-primary btn-large btn-block" id="centerbot">
+	</form>
+
+
+	<script>
+	    function changeForm(form) {
+	      	for (var i=0; i<form.length; i++){
+	        	var form_op = form.options[i].value;
+	        if (form_op == form.value) {
+	          	document.getElementsByName(form_op)[0].style.display = "block";
+	        }else {
+	          	document.getElementsByName(form_op)[0].style.display = "none";
+	        }
+	       	}
+	    }
+	</script>
+</body>
+{% endblock %}

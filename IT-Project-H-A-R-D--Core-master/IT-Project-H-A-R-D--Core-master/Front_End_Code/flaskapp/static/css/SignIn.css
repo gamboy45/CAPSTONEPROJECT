@@ -1,0 +1,110 @@
+/* Style code written by Hanze Hu with help from w3school html and css tutorials 
+https://www.w3schools.com/howto/howto_css_login_form.asp
+*/
+body {
+	font-family : Montserrat;
+	background : #90B4C4;
+	background : rgba(144, 180, 196, 0.65);
+	filter: alpha(opacity=65) progid:DXImageTransform.Microsoft.Alpha(opacity=65) ;
+}
+
+form {
+	border: 3px solid #f1f1f1;
+	background : #F7F7F7;
+	background : rgba(247, 247, 247, 1);
+	border-radius : 9px;
+	max-width: 500px;
+	margin: auto;
+	padding: 16px;
+	border-radius : 9px;
+	-moz-border-radius : 9px;
+	-webkit-border-radius : 9px;
+}
+
+input[type=text], input[type=password] {
+	font-family : Montserrat;
+	width: 80%;
+	padding: 12px 15px;
+	margin: 8px 0px 25px 30px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	height: 40px;
+
+	border-style : Solid;
+	border-color : #036280;
+	border-color : rgba(3, 98, 128, 1);
+	border-width : 1.1px;
+	border-radius : 9px;
+	-moz-border-radius : 9px;
+	-webkit-border-radius : 9px;
+}
+
+button{
+	background-color : #036280;
+	color : #F7F7F7;
+	color : rgb(247, 247, 247);
+	border: none;
+	cursor: pointer;
+	width: 25%;
+	height: 40px;
+	margin-top: 10px;
+	margin-left: 30px;
+	opacity : 0.8;
+
+	font-family : Montserrat;
+	font-weight : bold;
+	font-size : 20px;
+	
+	border-radius : 9px;
+	-moz-border-radius : 9px;
+	-webkit-border-radius : 9px;
+}
+
+button:hover {
+	opacity: 0.65;
+}
+
+.imgcontainer {
+	text-align: center;
+	margin: 24px 0 24px 0;
+}
+
+img.avatar {
+	width: 40%;
+	border-radius: 50%;
+}
+
+.container {
+	max-width: 500px;
+	margin: auto;
+	padding: 16px;
+	background : #F7F7F7;
+	background : rgba(247, 247, 247, 1);
+	border-radius : 9px;
+	-moz-border-radius : 9px;
+	-webkit-border-radius : 9px;
+}
+
+label {
+	font-family : Montserrat;
+	font-size : 20px;
+	color : #595A5A;
+	color : rgb(89, 90, 90);
+	margin-left: 30px;
+}
+
+input {
+	font-family : Montserrat;
+	font-size : 15px;
+	color : #595A5A;
+	color : rgb(89, 90, 90);
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+span.psw {
+	display: block;
+	float: none;
+}
+}

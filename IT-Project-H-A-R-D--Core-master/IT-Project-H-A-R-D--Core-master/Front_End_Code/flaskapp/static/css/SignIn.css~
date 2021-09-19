@@ -1,0 +1,216 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+	background : #036280;
+	background : rgba(3, 98, 128, 1);
+	opacity : 0.8;
+	position : absolute ;
+	left : 671px;
+	top : 631px;
+	border-radius : 9px;
+	-moz-border-radius : 9px;
+	-webkit-border-radius : 9px;
+	filter: alpha(opacity=80) progid:DXImageTransform.Microsoft.Alpha(opacity=80) ;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+@charset "utf-8";
+	.Password_Bar
+{
+	border-style : Solid;
+	border-color : #036280;
+	border-color : rgba(3, 98, 128, 1);
+	border-width : 1px;
+	position : absolute ;
+	left : 671px;
+	top : 522px;
+	border-radius : 9px;
+	-moz-border-radius : 9px;
+	-webkit-border-radius : 9px;
+}
+.Sign_In_Button
+{
+	background : #036280;
+	background : rgba(3, 98, 128, 1);
+	opacity : 0.8;
+	position : absolute ;
+	left : 671px;
+	top : 631px;
+	border-radius : 9px;
+	-moz-border-radius : 9px;
+	-webkit-border-radius : 9px;
+	filter: alpha(opacity=80) progid:DXImageTransform.Microsoft.Alpha(opacity=80) ;
+}
+.White_box
+{
+	background : #F7F7F7;
+	background : rgba(247, 247, 247, 1);
+	position : absolute ;
+	left : 580px;
+	top : 301px;
+	border-radius : 9px;
+	-moz-border-radius : 9px;
+	-webkit-border-radius : 9px;
+}
+.Email_Bar
+{
+	border-style : Solid;
+	border-color : #036280;
+	border-color : rgba(3, 98, 128, 1);
+	border-width : 1px;
+	position : absolute ;
+	left : 671px;
+	top : 406px;
+	border-radius : 9px;
+	-moz-border-radius : 9px;
+	-webkit-border-radius : 9px;
+}
+.Leon_Logo
+{
+	background-image : url(Leon_Logo.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 14px;
+	top : 9px;
+}
+.Top_Bar
+{
+	background : #F7F7F7;
+	background : rgba(247, 247, 247, 1);
+	position : absolute ;
+	left : 0px;
+	top : 1px;
+}
+.Leon_Logo_1_
+{
+	background-image : url(Leon_Logo_1_.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 907px;
+	top : 128px;
+}
+.BackGround
+{
+	background : #90B4C4;
+	background : rgba(144, 180, 196, 1);
+	opacity : 0.65;
+	position : absolute ;
+	left : 0px;
+	top : 65px;
+	filter: alpha(opacity=65) progid:DXImageTransform.Microsoft.Alpha(opacity=65) ;
+}
+.Search_Bar
+{
+	background-image : url(Search_Bar.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 87px;
+	top : 11px;
+}
+.NormalCharacterStyle
+{
+	font-family : Montserrat;
+	font-size : 18px;
+	color : #036280;
+	color : rgb(3, 98, 128);
+}
+.NormalCharacterStyle7
+{
+	font-family : Montserrat;
+	font-size : 34px;
+	color : #595A5A;
+	color : rgb(89, 90, 90);
+}
+.NormalCharacterStyle2
+{
+	font-family : Montserrat;
+	font-size : 18px;
+	color : #036280;
+	color : rgb(3, 98, 128); 
+	text-decoration : underline;
+}
+.NormalCharacterStyle5
+{
+	font-family : Montserrat;
+	font-size : 34px;
+	color : #595A5A;
+	color : rgb(89, 90, 90);
+}
+.NormalCharacterStyle4
+{
+	font-family : Montserrat;
+	font-size : 25px;
+	color : #595A5A;
+	color : rgb(89, 90, 90);
+}
+.NormalCharacterStyle3
+{
+	font-family : Montserrat;
+	font-size : 25px;
+	color : #595A5A;
+	color : rgb(89, 90, 90);
+}
+.NormalCharacterStyle6
+{
+	font-family : Montserrat;
+	font-size : 34px;
+	color : #595A5A;
+	color : rgb(89, 90, 90);
+}
+.NormalCharacterStyle1
+{
+	font-family : Montserrat;
+	font-weight : bold;
+	font-size : 31px;
+	color : #F7F7F7;
+	color : rgb(247, 247, 247);
+}

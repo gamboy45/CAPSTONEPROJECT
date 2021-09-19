@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+	h1{
+    	font-family : Montserrat;
+        font-weight: bold;
+        font-size : 22px;
+        text-decoration: none;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+        text-align: center;
+        padding: 1.5px 10px 0px 15px;
+    }
+	#results {
+ 		font-family: Montserrat;
+  		border-collapse: collapse;
+  		width: 80%;
+		margin: auto;
+	}
+
+	#results td, #results th {
+  		border: 1px solid #ddd;
+  		padding: 8px;
+	}
+
+	#results tr:nth-child(even){
+		background-color: #8c8c8c;
+		background-color : rgb(140, 140, 140, 0.4);
+	}
+
+	#results tr:hover {
+		background : #F7F7F7;
+		background : rgba(247, 247, 247, 1);
+	}
+
+	#results th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		color : #595A5A;
+        color : rgb(89, 90, 90);
+		color: white;
+		background : #90B4C4;
+		background : rgba(144, 180, 196, 1);
+	}
+</style>
+
+
+<h1>Showing the results for: {{ names }} {{ locations }} {{ years }} {{ tags }} {{ people }}</h1>
+
+ <table id="results">
+	<tr>
+		<th>Artifact Name</th>
+		<th>Location</th>
+		<th>Year Acquired</th>
+		<th>Link to Page</th>
+	</tr>
+	{% for result in results %}
+	<tr>
+		<td>{{ result.Name }}</td>
+		<td>{{ result.Geotag }}</td>
+		<td>{{ result.DateYearAcquired }}</td>
+		<td><form action='/artifact_page/{{ result.ArtifactID }}' method="get">
+			<input type="submit" name="{{ result.ArtifactID }}" value="{{ result.ArtifactID }}">
+		</form></td>
+	</tr>
+	{% endfor %}
+</table> 
+
+{% endblock %}

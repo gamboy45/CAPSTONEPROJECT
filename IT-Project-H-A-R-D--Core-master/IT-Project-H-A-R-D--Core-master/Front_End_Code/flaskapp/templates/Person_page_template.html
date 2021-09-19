@@ -1,0 +1,330 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+	body{
+		max-width: 100%;
+		background : rgb(144, 180, 196, 0.4);
+	}
+	p{
+    	font-family : Montserrat;
+        font-size : 15px;
+		display: inline;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+		text-decoration: none;
+        padding: 1.5px 10px 0px 15px;
+    }
+	h1{
+    	font-family : Montserrat;
+        font-weight: bold;
+        font-size : 22px;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+		text-decoration: none;
+        padding: 1.5px 10px 0px 15px;
+    }
+	h2{
+		font-family : Montserrat;
+        font-size : 15px;
+		text-align: left;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+		text-decoration: none;
+		margin: 3px 0 5px 4px;
+	}
+	h3{
+		font-family : Montserrat;
+        font-size : 15px;
+		text-align: center;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+		margin-top: 0;
+		margin-bottom: 2vh;
+		padding: 0;
+		text-decoration: none;
+	}
+	h4{
+    	font-family : Montserrat;
+		font-weight: bold;
+        font-size : 15px;
+		display: inline;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+		white-space: pre;
+        padding: 1.5px 10px 0px 15px;
+    }
+	span.acc{
+        background:#F7F7F7;
+        border: 2px solid rgb(89, 90, 90, 0.4);
+        color: rgb(89, 90, 90);
+		font-family: Montserrat;
+        font-size: 13px;
+
+        width: 15%;
+        letter-spacing: 1px;
+        line-height: 20px;
+        position:absolute;
+        text-align: center;
+        top: auto;
+        margin-left: 10%;
+        display: none;
+    }
+	p.date:hover span{
+        display:block;
+    }
+	a{
+		font-family : Montserrat;
+		font-size : 16px;
+		text-decoration: none;
+		text-align: left;
+		color : #595A5A;
+		color : rgb(89, 90, 90);
+		padding-left: 1%;
+		display: block;
+	}
+
+	div.profile{
+		width: 35%;
+		height: 90vh;
+		display: inline-block;
+
+		font-family : Montserrat;
+        padding: 5px 5px;
+        margin-left: 2%;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+
+        border-style : Solid;
+		background-color:rgb(89, 90, 90, 0.2);
+        border-radius : 5px;
+	}
+	div.relatives{
+		display: block;
+		position: relative;
+		float: right;
+		margin-right: 2%;
+		font-family : Montserrat;
+		width: 60%;
+		max-height: 85vh;
+
+        color : #595A5A;
+        color : rgb(89, 90, 90);
+	}
+
+	div.parent{
+		display: inline-block;
+		width: 15%;
+		height: 28vh;
+		margin-left: 10%;
+	}
+	div.spouse{
+		display:inline-block;
+		width: 17.5%;
+	}
+	div.sibling{
+		display: inline-block;
+		width: 15%;
+		margin-left: 5%;
+	}
+	div.child{
+		display: inline-block;
+		width: 15%;
+		margin-left: 7.5%;
+		margin-top: 10vh;
+		padding-top: 10vh;
+	}
+	div.self{
+		display: inline-block;
+		width: 20%;
+		margin-left: 5%;
+	}
+	img.profilepic{
+		width: 100%;
+	}
+	img.self{
+		width: 30%;
+	}
+	div.info{
+		display: block;
+		width: 70%;
+		float: right;
+	}
+	div.linebreak{
+		width: 98%;
+		height: 33vh;
+		display: block;
+		padding-left: 5%;
+	}
+	form.edit{
+		left: 2.5%;
+		position: absolute;
+		bottom: 4vh;
+	}
+	div.text{
+		width: 90%;
+	}
+	div.artifacts{
+		font-family: Montserrat;
+		font-size : 15px;
+		display: inline;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+		margin: 3px 0 5px 4px;
+	}
+
+	input[type=submit]{
+		background-color : rgb(89, 90, 90, 0.6);
+		color : #F7F7F7;
+		color : rgb(247, 247, 247);
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		height: 4vh;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top: 1vh;
+		display: block;
+		opacity : 0.8;
+		outline: none;
+
+		font-family : Montserrat;
+		font-size : 18px;
+		
+		border-radius : 9px;
+		-moz-border-radius : 9px;
+		-webkit-border-radius : 9px;
+	}
+</style>
+
+<body>
+	<div class = "profile">
+		{% if imageData == None %}
+			<img class="self" src = "/static/Images/default_profile.png">
+		{% else %}
+			<img class="self" src="data:image/jpeg;base64,{{ imageData }}" alt="No Images Yet"/>
+		{% endif %}
+		<div class = "info">
+			<div class="text"><h1>{{ person.FirstName }} {{ person.LastName }}</h1></div>
+			<!-- Only display maiden name and DOD when the person has one-->
+			{% if person.MaidenName != None %}
+				<div class="text"><h4>Maiden name:</h4> <p> {{ person.MaidenName }}</p></div>
+			{% endif %}
+			{% if person.DODYear != None %}
+				<div class="text">
+					<h4>Died: </h4>
+					<p class="date">{{ person.DODDay }}/{{ person.DODMonth }}/{{ person.DODYear }}
+						<span class="acc">Accuracy: {{ person.AccuracyDOD }}</span>
+					</p>
+				</div>
+			{% endif %}
+				<div class = "text">
+					<h4>Born: </h4 >
+					<p class="date">
+						<span class="acc">Accuracy: {{ person.AccuracyDOB }}</span>
+						{{ person.DOBDay }}/{{ person.DOBMonth }}/{{ person.DOBYear }}
+					</p>
+				</div>
+			{% if person.Gender == 'm' %}
+				<div class = "text"><h4>Gender: </h4> <p>Male</p></div>
+			{% else %}
+				<div class = "text"><h4>Gender: </h4> <p>Female</p></div>
+			{% endif %}
+		</div>
+
+
+
+		<h2>Associated Artifacts</h2>
+		{% for artifact in artifacts %}
+			<div class = "artifacts">
+				<a href = "/artifact_page/{{ artifact.ArtifactID }}"> {{ artifact.Name }} </a>
+			</div>
+		{% endfor %}
+		<form class="edit" action='/editPersonData/{{ person.FamilyMemberID }}' method="get">
+			<input type="submit" name="Edit Person" placeholder="Edit Person" value="Edit Person" class="btn btn-primary btn-large btn-block">
+		</form>
+	</div>
+
+
+	<div class = "relatives">
+	<div class = "linebreak">
+	{% for relative in relatives %}
+		{% if relative[0] == 'linebreak' %}
+			</div><div class="linebreak">
+		{% elif relative[0] == 'self' %}
+			<div class="self">
+				<form action='/person_page/{{ relative[2] }}' method="get">
+					{% if imageData == None %}
+						<img class="profilepic" src = "/static/Images/default_profile.png">
+					{% else %}
+						<img class="profilepic" src="data:image/jpeg;base64,{{ imageData }}" alt="No Images Yet"/>
+					{% endif %}
+				</form>
+				<h3>{{ person.FirstName }} {{ person.LastName }}</h3>
+			</div>
+		{% elif relative[0] == 'nospouse' %}
+			<div class = "spouse"></div>
+		{% elif relative[0] == 'noparent' %}
+			<div class = "parent"></div>
+		{% elif relative[0] == 'child' %}
+			<div class="parent">
+				<form action='/person_page/{{ relative[2] }}' method="get">
+					<a href='/person_page/{{ relative[2] }}'>
+						{% if relative[3] == None %}
+							<img class="profilepic" src = "/static/Images/default_profile.png">
+						{% else %}
+							<img class="profilepic" src="data:image/jpeg;base64,{{ relative[3] }}" alt="No Images Yet"/>
+						{% endif %}
+						<h3>{{ relative[1] }}</h3>
+					</a>
+				</form>
+			</div>
+		{% elif relative[0] == 'spouse' %}
+			<div class = "spouse">
+				<form action='/person_page/{{ relative[2] }}' method="get">
+					<a href='/person_page/{{ relative[2] }}'>
+						{% if relative[3] == None %}
+							<img class="profilepic" src = "/static/Images/default_profile.png">
+						{% else %}
+							<img class="profilepic" src="data:image/jpeg;base64,{{ relative[3] }}" alt="No Images Yet"/>
+						{% endif %}
+						<h3>{{ relative[1] }}</h3>
+					</a>
+				</form>
+			</div>
+		{% elif relative[0] == 'brother' or relative[0] == 'sister' or relative[0] == 'parent'%}
+			<div class = "sibling">
+				<form action='/person_page/{{ relative[2] }}' method="get">
+					<a href='/person_page/{{ relative[2] }}'>
+						{% if relative[3] == None %}
+							<img class="profilepic" src = "/static/Images/default_profile.png">
+						{% else %}
+							<img class="profilepic" src="data:image/jpeg;base64,{{ relative[3] }}" alt="No Images Yet"/>
+						{% endif %}
+						<h3>{{ relative[1] }}</h3>
+					</a>
+				</form>
+			</div>
+		{% elif relative[0] == 'parent' %}
+			<div class = "child">
+				<form action='/person_page/{{ relative[2] }}' method="get">
+					<a href='/person_page/{{ relative[2] }}'>
+						{% if relative[3] == None %}
+							<img class="profilepic" src = "/static/Images/default_profile.png">
+						{% else %}
+							<img class="profilepic" src="data:image/jpeg;base64,{{ relative[3] }}" alt="No Images Yet"/>
+						{% endif %}
+						<h3>{{ relative[1] }}</h3>
+					</a>
+				</form>
+			</div>
+		{% endif %}
+
+	{% endfor %}
+	</div>
+	</div>
+
+	
+
+	
+</body>
+{% endblock %}

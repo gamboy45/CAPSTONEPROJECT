@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    form {
+		border: 3px solid #f1f1f1;
+		background : #F7F7F7;
+		background : rgba(247, 247, 247, 1);
+		border-radius : 9px;
+		max-width: 35%;
+        min-height: 30vh;
+		margin: auto;
+		padding: 16px;
+		border-radius : 9px;
+		-moz-border-radius : 9px;
+		-webkit-border-radius : 9px;
+	}
+    h1{
+    	font-family : Montserrat;
+        font-weight: bold;
+        font-size : 22px;
+        text-decoration: none;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+        text-align: center;
+        padding: 1.5px 10px 0px 15px;
+    }
+    p{
+        font-family : Montserrat;
+        font-size : 16px;
+        text-decoration: none;
+        text-align: center;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+        text-align: center;
+        padding: 1.5px 10px 0px 15px;
+    }
+
+    input[type=text]{
+		font-family : Montserrat;
+		width: 80%;
+		padding: 12px 15px;
+		margin: auto;
+        margin-top: 10px;
+        margin-bottom:25px;
+		display: block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		height: 40px;
+
+		border-style : Solid;
+		color : #595A5A;
+        color : rgb(89, 90, 90);
+		border-width : 1.5px;
+		border-radius : 9px;
+        outline: none;
+	}
+    input[type=submit]{
+        background-color: rgb(3,98,128,0.9);
+		color : #F7F7F7;
+		color : rgb(247, 247, 247);
+		border: none;
+		cursor: pointer;
+		width: 25%;
+		height: 40px;
+        margin-left:auto;
+        margin-right:auto;
+        display: block;
+		opacity : 0.8;
+        outline: none;
+
+		font-family : Montserrat;
+		font-weight : bold;
+		font-size : 20px;
+		
+		border-radius : 9px;
+		-moz-border-radius : 9px;
+		-webkit-border-radius : 9px;
+	}
+    input[type=submit]:hover{
+        opacity: 0.7;
+    }
+
+    select.artifact {
+        -webkit-appearance: button;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);;
+        -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+        -webkit-user-select: none;
+
+        font-family : Montserrat;
+        font-size : 13px;
+        width: 80%;
+        height: 40px;
+        padding-top: 0;
+        padding-left: 15px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom:25px;
+        display: block;
+        border: 1px solid #ccc;
+        border-radius : 9px;
+        box-sizing: border-box;
+
+        border-style : Solid;
+        color : #595A5A;
+        color : rgb(89, 90, 90);
+        border-radius : 9px;
+        outline: none;
+    }
+
+    .select-style select {
+        padding: 5px 8px;
+        width: 130%;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        background-image: none;
+        -webkit-appearance: none;
+    }
+
+    select.searchtype {        
+        appearance: button;
+        -webkit-appearance: button;
+        -webkit-user-select: none;
+
+        width: auto;
+        margin-left: 2px;
+        margin-top: 1vh;
+        margin-bottom:2vh;
+        padding-left: 5px;
+
+        display: inline-block;
+        border: none;
+        font-family : Montserrat;
+        font-weight: bold;
+        font-size : 22px;
+        text-decoration: underline;
+    	color : #595A5A;
+        color : rgb(89, 90, 90);
+        text-align: center;
+        outline: none;
+        background : rgb(144, 180, 196, 0);
+    }
+    option.searchtype{
+        font-family : Montserrat;
+        text-decoration: none;
+        font-size : 16px;
+        background : rgb(144, 180, 196, 0.4);
+    }
+    option.searchtype:hover {
+        box-shadow: 0 0 10px 10px #e1358f inset;
+        background: rgb(144, 180, 196, 0.2);
+    }
+    div.query-form{
+        padding-top: 3vh;
+    }
+    body{
+        background : rgb(144, 180, 196, 0.4);
+    }
+    #people{
+        padding-top: 1vh;
+    }
+</style>
+
+<body>
+<h1> Search For
+	<select class = "searchtype" id="formselector" onchange="changeForm(this)">
+		<option class="searchtype" value="People" selected="selected">People</option>
+		<option class="searchtype" value="Artifacts">Artifacts</option>
+    </select>
+</h1>
+
+<form name="People" id="People" action="/search/people_results" method="post">
+    <div class="query-form">
+        <div class="search-param" id="people">
+            <input type="text" class="search-field" value="" placeholder="FirstName" name="FirstName">
+            <label class="Search-field-icon fui-user" for="search-first"></label>
+        </div>
+        <div class="search-param" id="people">
+            <input type="text" class="search-field" value="" placeholder="LastName" name="LastName">
+            <label class="Search-field-icon fui-lock" for="search-last"></label>
+        </div>
+        <input type="submit" value="Search" class="btn btn-primary btn-large btn-block">
+    </div>
+</form>
+
+
+<form name="Artifacts" id="Artifacts" style = "display:none" action="/search/artifact_results" method="post">
+    
+    <div class="query-form">
+        <div class="search-param">
+            <input type="text" class="search-field" value="" placeholder="Name" name="Name">
+            <label class="Search-field-icon" for="search-name"></label>
+        </div>
+        <div class="search-param">
+            <input type="text" class="search-field" value="" placeholder="Year" name="Year">
+            <label class="Search-field-icon" for="search-year"></label>
+        </div>
+        <div class="search-param">
+            <input type="text" class="search-field" value="" placeholder="Tag" name="Tag">
+            <label class="Search-field-icon" for="search-year"></label>
+        </div>
+        <div>
+            <select class="artifact" id="artifact-type" name = "artifactType" required>
+                <option value="all" selected>-- Artifact-type --</option>
+                <option value="letter">Letter</option>
+                <option value="postcard">PostCard</option>
+                <option value="all">All</option>
+            </select>
+        </div>
+        <div class="search-param">
+            <p>Use a space character to separate first and last names</p>
+            <input type="text" class="search-field" value="" placeholder="Associated People" name="Associated Person">
+            <label class="Search-field-icon" for="search-year"></label>
+        </div>
+        <input type="submit" value="Search" class="btn btn-primary btn-large btn-block">
+    </div>
+</form>
+
+<script>
+    function changeForm(form) {
+      	for (var i=0; i<form.length; i++){
+        	var form_op = form.options[i].value;
+        if (form_op == form.value) {
+          	document.getElementsByName(form_op)[0].style.display = "block";
+        }else {
+          	document.getElementsByName(form_op)[0].style.display = "none";
+        }
+       	}
+    }
+</script>
+</body>
+{% endblock %}

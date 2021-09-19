@@ -1,0 +1,57 @@
+/* Style code written by Hanze Hu with help from w3school html and css tutorials 
+https://www.w3schools.com/howto/howto_css_login_form.asp
+*/
+
+body {
+	font-family : Montserrat;
+	margin: 0;
+	padding: 0;
+	background: #F7F7F7;
+}
+
+.menu {
+	height: 22px;
+	margin: auto;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 20px;
+	background : #F7F7F7;
+	background : rgba(247, 247, 247, 1);
+}
+
+a.menuitem {
+	font-family : Montserrat;
+	font-size : 22px;
+	text-decoration: none;
+	color : #595A5A;
+	color : rgb(89, 90, 90);
+	float: right;
+	padding: 1.5px 10px 0px 15px;
+}
+
+a.menuitem:hover {
+	padding: 0px 10px 1.5px 15px;
+}
+
+a.small_logo {
+	margin-left: 5px;
+	float: left;
+}
+
+img.small_logo{
+	width: 70%;
+	height: 70%;
+}
+
+hr{
+	border: none;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+span.psw {
+	display: block;
+	float: none;
+}
+}

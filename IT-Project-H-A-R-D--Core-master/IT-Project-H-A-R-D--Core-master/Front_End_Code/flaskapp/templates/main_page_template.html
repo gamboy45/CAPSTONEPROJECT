@@ -1,0 +1,479 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Hard coded family tree as home page, images and link need to be manually updated, all pictures and name tags
+are clickable and will lead to the person's personal page-->
+
+<body>
+	<head>
+        <style>
+			a.profile{
+				width: 88%;
+				
+			}
+			input[type=button], input[type=submit], input[type=reset] {
+				background-color: transparent;
+				background-image: url(static/Images/Banner.png);
+				background-repeat: no-repeat;
+				background-size: contain;
+				height: 40px;
+				width: 88%;
+				margin-left: 10px;
+				margin-right: 10px;
+				border: none;
+				outline: none;
+				color: none;
+
+				font-family: Montserrat;
+				font-weight: bold;
+				color: #595A5A;
+				font-size : 75%;
+  				top: 50%;
+  				left: 50%;
+			}
+
+			
+			img.profile{
+				margin-left: 20px;
+				margin-right: 20px;
+				height: auto;
+				width: 75%;
+				background-size: contain;
+			}
+
+			div img.profile:hover{
+				opacity: 0.8;
+			}
+
+
+			div.normal_spacing{
+				display: inline-block;
+				margin-left: 0;
+				width: 10.53%;
+			}
+			div.small_spacing{
+				display: inline-block;
+				margin-left: 1.97%;
+				margin-right: 0;
+				padding: 0;
+				width: 10.53%;
+			}
+			div.medium_spacing{
+				display: inline-block;
+				margin-left: 3.94%;
+				margin-right: 0;
+				width: 10.53%;
+			}
+			div.large_spacing{
+				display: inline-block;
+				margin-left: 6.58%;
+				margin-right: 0;
+				width: 10.53%;
+			}
+
+			div.grandparents{
+				max-width: 100%;
+			}
+			div.parents{
+				max-width: 100%;
+			}
+			div.samegen{
+				max-width: 100%;
+				
+			}
+			div.children{
+				max-width: 100%;
+			}
+		</style>
+		
+	</head>
+
+	
+
+	<div class="grandparents">
+		<svg height=40 width=100%>
+			<!-- Bernard Harris and Theodore Harris-->
+			<line x1="5.26%" y1="40" x2="5.26%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="28.95%" y1="20" x2="5.26%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="17.11%" y1="20" x2="17.11%" y2="0" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="28.95%" y1="20" x2="28.95%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<!-- Helen Harris and Alfred Hanbury-->
+			<line x1="39.47%" y1="40" x2="39.47%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="76.32%" y1="20" x2="39.47%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="58.22%" y1="20" x2="58.22%" y2="0" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="76.32%" y1="20" x2="76.32%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+		</svg>
+
+		<div class="normal_spacing">
+			<a class=profile href='/person_page/{{ 20 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 20 }}' method="get"></form>
+				<input type="submit" name="Bernard Harris" value="Bernard Harris">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 21 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 21 }}' method="get">	
+				<input type="submit" name="Bernard's Wife" value="Bernard's Wife">
+			</form>
+		</div>
+
+		<div class = "small_spacing">
+			<a class=profile href='/person_page/{{ 16 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 16 }}' method="get">
+				<input type="submit" name="Theodore Harris" value="Theodore Harris">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 17 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 17 }}' method="get">
+				<input type="submit" name="Helen Harris" value="Helen Harris">
+			</form>
+		</div>
+
+		<div class = "small_spacing">
+			<a class=profile href='/person_page/{{ 14 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 14 }}' method="get">
+				<input type="submit" name="Jacob Sterling" value="Jacob Sterling">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 15 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 15 }}' method="get">
+				<input type="submit" name="Sarah Sterling" value="Sarah Sterling">
+			</form>
+		</div>
+
+		<div class = "small_spacing">
+			<a class=profile href='/person_page/{{ 18 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 18 }}' method="get">
+				<input type="submit" name="Alfred Hanbury" value="Alfred Hanbury">
+			</form>
+		</div>
+
+		<svg height=60 width=auto>
+			<!-- Bernard Harris and Bernard's Wife-->
+			<line x1="5.26%" y1="0" x2="5.26%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="16.45%" y1="0" x2="16.45%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="5.26%" y1="20" x2="16.45%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<line x1="10.86%" y1="20" x2="10.86%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="9.21%" y1="40" x2="10.86%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="9.21%" y1="40" x2="9.21%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<!-- Theodore Harris and Helen Harris-->
+			<line x1="28.95%" y1="0" x2="28.95%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="40.13%" y1="20" x2="28.95%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="40.13%" y1="20" x2="40.13%" y2="0" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<line x1="29.47%" y1="40" x2="29.47%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="24.01%" y1="40" x2="24.01%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="24.01%" y1="40" x2="34.87%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="34.87%" y1="40" x2="34.87%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<!-- Jacob Sterling and Sarah Sterling-->
+			<line x1="52.63%" y1="20" x2="52.63%" y2="0" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="52.63%" y1="20" x2="63.82%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="63.82%" y1="20" x2="63.82%" y2="0" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<line x1="58.55%" y1="20" x2="58.55%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="47.37%" y1="40" x2="69.41%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="47.37%" y1="40" x2="47.37%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="58.55%" y1="40" x2="58.55%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="69.41%" y1="40" x2="69.41%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+		</svg>
+
+	</div>
+
+
+
+	<div class="parents">
+		<div class="medium_spacing">
+			<a class=profile href='/person_page/{{ 19 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 19 }}' method="get">
+				<input type="submit" name="Sarah Harris" value="Sarah Harris">
+			</form>
+		</div>
+
+		<div class = "medium_spacing">
+			<a class=profile href='/person_page/{{ 9 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 9 }}' method="get">	
+				<input type="submit" name="Cynthia Harris" value="Cynthia Harris">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 10 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 10 }}' method="get">
+				<input type="submit" name="Ruth Sterling" value="Ruth Sterling">
+			</form>
+		</div>
+
+		<div class = "small_spacing">
+			<a class=profile href='/person_page/{{ 11 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 11 }}' method="get">
+				<input type="submit" name="Joseph Sterling" value="Joseph Sterling">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 12 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 12 }}' method="get">
+				<input type="submit" name="Julie Freeman" value="Julie Freeman">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 13 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 13 }}' method="get">
+				<input type="submit" name="Julian Sterling" value="Julian Sterling">
+			</form>
+		</div>
+		
+		<div class = "small_spacing">
+			<a class=profile href='/person_page/{{ 7 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 7 }}' method="get">
+				<input type="submit" name="Max Freilich" value="Max Freilich">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 8 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 8 }}' method="get">
+				<input type="submit" name="Anita Freilich" value="Anita Freilich">
+			</form>
+		</div>
+		
+		<svg height=60 width=auto>
+			<!-- Cynthia Harris-->
+			<line x1="24.01%" y1="0" x2="24.01%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="24.01%" y1="20" x2="17.3%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="17.3%" y1="40" x2="17.3%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<line x1="11.84%" y1="40" x2="11.84%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="22.7%" y1="40" x2="22.7%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="22.7%" y1="40" x2="11.84%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<!-- Ruth Harris and Joseph Sterling-->
+			<line x1="34.87%" y1="0" x2="34.87%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="47.37%" y1="0" x2="47.37%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="34.87%" y1="20" x2="47.37%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<line x1="41.45%" y1="20" x2="41.45%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="46.38%" y1="40" x2="35.53%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="46.38%" y1="40" x2="46.38%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="35.53%" y1="40" x2="35.53%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<!-- Max and Anita Freilich-->
+			<line x1="82.24%" y1="20" x2="82.24%" y2="0" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="92.76%" y1="20" x2="92.76%" y2="0" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="92.76%" y1="20" x2="69.08%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			
+			<line x1="69.08%" y1="20" x2="69.08%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="63.82%" y1="40" x2="74.34%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="63.82%" y1="40" x2="63.82%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="74.34%" y1="40" x2="74.34%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+		</svg>
+	</div>
+
+			
+
+	<div class="samegen">
+		<div class="large_spacing">
+			<a class=profile href='/person_page/{{ 5 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 5 }}' method="get">
+				<input type="submit" name="Barry Feiglin" value="Barry Feiglin">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 6 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 6 }}' method="get">	
+				<input type="submit" name="David Feiglin" value="David Feiglin">
+			</form>
+		</div>
+
+		<div class = "small_spacing">
+			<a class=profile href='/person_page/{{ 3 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 3 }}' method="get">
+				<input type="submit" name="Zoe Sterling" value="Zoe Sterling">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 1 }}' >
+				<img class="profile" src = "/static/Images/Leon_Sterling.jpg" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 1 }}' method="get">
+				<input type="submit" name="Leon Sterling" value="Leon Sterling">
+			</form>
+		</div>
+
+		<div class = "large_spacing">
+			<a class=profile href='/person_page/{{ 2 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 2 }}' method="get">
+				<input type="submit" name="Mariam Sterling" value="Mariam Sterling">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 4 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 4 }}' method="get">
+				<input type="submit" name="David Freilich" value="David Freilich">
+			</form>
+		</div>
+
+		<svg height=60 width=auto>
+			<!-- Barry Feiglin-->
+			<line x1="11.84%" y1="0" x2="11.84%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="16.12%" y1="20" x2="11.84%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="16.12%" y1="20" x2="16.12%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			
+			<line x1="5.26%" y1="40" x2="26.97%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="5.26%" y1="40" x2="5.26%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="16.12%" y1="40" x2="16.12%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="26.97%" y1="40" x2="26.97%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<!-- Zoe Sterling-->
+			<line x1="35.53%" y1="0" x2="35.53%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="35.53%" y1="20" x2="45.26%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<line x1="45.26%" y1="20" x2="45.26%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="39.8%" y1="40" x2="50.66%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="39.8%" y1="40" x2="39.8%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="50.66%" y1="40" x2="50.66%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<!-- Leon and Mariam Sterling-->
+			<line x1="46.38%" y1="20" x2="46.38%" y2="0" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="63.82%" y1="20" x2="63.82%" y2="0" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="46.38%" y1="20" x2="74.1%" y2="20" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+
+			<line x1="74.1%" y1="20" x2="74.1%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="63.16%" y1="40" x2="84.87%" y2="40" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="63.16%" y1="40" x2="63.16%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="74.1%" y1="40" x2="74.1%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+			<line x1="84.87%" y1="40" x2="84.87%" y2="60" style="stroke:rgb(89, 90, 90);stroke-width:2" />
+		</svg>
+	</div>
+	
+
+
+		
+	<div class="children">
+		<div class="normal_spacing">
+			<a class=profile href='/person_page/{{ 27 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 27 }}' method="get">
+				<input type="submit" name="Jeremy Feiglin" value="Jeremy Feiglin">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 28 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 28 }}' method="get">	
+				<input type="submit" name="Tanam Feiglin" value="Tanam Feiglin">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 29 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 29 }}' method="get">
+				<input type="submit" name="Aviva Carnell" value="Aviva Carnell">
+			</form>
+		</div>
+
+		<div class = "small_spacing">
+			<a class=profile href='/person_page/{{ 22 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 22 }}' method="get">
+				<input type="submit" name="Joana Anderson" value="Joana Anderson">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 23 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 23 }}' method="get">
+				<input type="submit" name="Alicia Anderson" value="Alicia Anderson">
+			</form>
+		</div>
+
+		<div class = "small_spacing">
+			<a class=profile href='/person_page/{{ 24 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 24 }}' method="get">
+				<input type="submit" name="Danya Sterling" value="Danya Sterling">
+			</form>
+		</div>
+		
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 25 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 25 }}' method="get">
+				<input type="submit" name="Sara Sterling" value="Sara Sterling">
+			</form>
+		</div>
+
+		<div class = "normal_spacing">
+			<a class=profile href='/person_page/{{ 26 }}'>
+				<img class="profile" src = "/static/Images/default_profile.png" alt = "Profile Picture">
+			</a>
+			<form action='/person_page/{{ 26 }}' method="get">
+				<input type="submit" name="Emily Sterling" value="Emily Sterling">
+			</form>
+		</div>
+	</div>
+
+</body>
+{% endblock %}
